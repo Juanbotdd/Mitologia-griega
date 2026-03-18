@@ -1,0 +1,464 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;600&family=EB+Garamond:ital,wght@0,400;0,600;1,400&display=swap');
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* ===== MODELO DE CAJA GLOBAL ===== */
+* {
+    box-sizing: border-box;
+}
+
+/* ===== 1. ESTILOS GLOBALES ===== */
+body {
+    background-color: #1a0f05;
+    color: #2c1a0a;
+    font-family: 'EB Garamond', Georgia, serif;
+    font-size: 1.08rem;
+    margin: 0;
+    line-height: 1.75;
+}
+
+main {
+    background: radial-gradient(ellipse at top, #fdf0d5 0%, #f0d9a8 50%, #e8c98a 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* ===== 2. NAVBAR ===== */
+#menu-principal {
+    background-color: #4e2b15 !important;
+    border-bottom: 2px solid #9b5709;
+}
+
+/* Estilo de los links de la navbar */
+.nav-link-custom {
+    color: #fff8ee !important;
+    font-family: 'Cinzel', serif;
+    font-size: 0.85rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    transition: color 0.3s, background-color 0.3s;
+    border-radius: 6px;
+    padding: 6px 14px !important;
+    margin: 0 4px;
+}
+
+.nav-link-custom:hover {
+    background-color: #9b5709;
+    color: #ffd700 !important;
+}
+
+/* Color del navbar-brand (el nombre a la izquierda) */
+.navbar-brand {
+    color: #fff8ee !important;
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 1rem !important;
+    letter-spacing: 1px;
+}
+
+/* ===== 3. HEADER ===== */
+@keyframes aparecer {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+header {
+    background:
+        linear-gradient(135deg, rgba(78,43,21,0.94) 0%, rgba(119,70,7,0.88) 100%),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23noise)' opacity='0.10'/%3E%3C/svg%3E");
+    color: white;
+    padding: 90px 20px 70px;
+    text-align: center;
+    position: relative;
+    width: 100%;
+}
+
+header::before {
+    content: "✦ ⚡ ✦";
+    display: block;
+    color: #cfa462;
+    font-size: 1rem;
+    letter-spacing: 16px;
+    margin-bottom: 24px;
+    opacity: 0.7;
+    animation: aparecer 0.8s ease-out both;
+}
+
+header::after {
+    content: "⸻ ✦ ⸻";
+    display: block;
+    color: #cfa462;
+    font-size: 1.1rem;
+    letter-spacing: 12px;
+    margin-top: 24px;
+    opacity: 0.5;
+    animation: aparecer 1s ease-out 0.9s both;
+}
+
+#titulo {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: clamp(1.8rem, 5.5vw, 4rem);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+    border-bottom: 2px solid #cfa462;
+    display: inline-block;
+    padding-bottom: 12px;
+    text-shadow: 0 0 40px rgba(207,164,98,0.35), 2px 3px 0 rgba(0,0,0,0.4);
+    animation: aparecer 1s ease-out 0.2s both;
+}
+
+.subtitulo {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(0.8rem, 2vw, 1rem);
+    color: #f5deb3;
+    margin-top: 14px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    animation: aparecer 1s ease-out 0.55s both;
+}
+
+/* ===== 4. DIVISOR ORNAMENTAL ===== */
+.divisor-griego {
+    text-align: center;
+    color: #9b5709;
+    font-size: 1.2rem;
+    letter-spacing: 14px;
+    padding: 8px 0;
+    opacity: 0.5;
+    width: 100%;
+}
+
+/* ===== 5. SECCIONES GENERALES ===== */
+section, aside {
+    background: linear-gradient(160deg, #fdf6e3 0%, #f5e6c8 100%);
+    padding: 30px 50px;
+    max-width: 900px;
+    width: calc(100% - 40px);
+    margin: 30px auto;
+    border-radius: 16px;
+    box-shadow: 0 6px 24px rgba(78,43,21,0.12), 0 1px 4px rgba(78,43,21,0.08);
+    border: 1px solid rgba(207,164,98,0.3);
+}
+
+/* Las secciones de cards usan container de Bootstrap */
+section#heroes,
+section#monstruos,
+section.container {
+    background: none;
+    box-shadow: none;
+    border: none;
+    padding: 0;
+    max-width: 1100px;
+}
+
+/* Sección dioses — fondo oscuro para destacar */
+section#dioses {
+    background: linear-gradient(135deg, #2c1505 0%, #3d1e08 100%) !important;
+    color: #f5deb3;
+    max-width: 100% !important;
+    width: 100% !important;
+    border-radius: 0 !important;
+    padding: 60px 40px !important;
+    border: none !important;
+    box-shadow: inset 0 8px 32px rgba(0,0,0,0.3) !important;
+}
+
+section#dioses h2,
+section#dioses p {
+    color: #f5deb3;
+}
+
+.dioses-ornamento {
+    font-size: 0.7rem;
+    letter-spacing: 10px;
+    color: #cfa462;
+    opacity: 0.5;
+    margin-bottom: 10px !important;
+}
+
+.dioses-subtitulo {
+    max-width: 680px;
+    margin: 0 auto 32px !important;
+    font-size: 1rem;
+    opacity: 0.85;
+    color: #e8d4a8 !important;
+}
+
+/* ===== 6. TIPOGRAFÍA DE SECCIONES ===== */
+h2 {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: clamp(1.3rem, 3vw, 1.9rem);
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+    color: #3d1e08;
+}
+
+section#dioses h2 { color: #cfa462; }
+
+h5.card-title {
+    font-family: 'Cinzel', serif;
+    letter-spacing: 0.5px;
+}
+
+.titulo-grande {
+    font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+}
+
+/* ===== 7. LISTA DE NAVEGACIÓN ===== */
+.lista-navegacion li {
+    margin-bottom: 10px;
+    list-style: "🏛️ ";
+}
+
+.lista-navegacion li a {
+    color: #774607;
+    font-family: 'Cinzel', serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    transition: color 0.2s;
+}
+
+.lista-navegacion li a:hover {
+    text-decoration: underline;
+    color: #4e2b15;
+}
+
+/* ===== 8. TABLA ===== */
+.table {
+    color: #f5deb3;
+    border-radius: 0 !important;
+    overflow: hidden;
+    border-collapse: separate;
+    border-spacing: 0;
+    border: 1px solid rgba(207,164,98,0.25) !important;
+}
+
+/* Quitar redondeo de Bootstrap en esquinas de la tabla */
+.table-responsive > .table,
+.table > :not(caption) > * > * {
+    border-radius: 0 !important;
+}
+
+.table thead th {
+    background-color: rgba(207,164,98,0.14) !important;
+    color: #cfa462 !important;
+    border-color: rgba(207,164,98,0.25) !important;
+    border-bottom: 2px solid rgba(207,164,98,0.4) !important;
+    font-family: 'Cinzel', serif;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-size: 0.78rem;
+    border-radius: 0 !important;
+    padding: 16px 14px !important;
+}
+
+/* Forzar esquinas planas en th de esquina */
+.table thead th:first-child,
+.table thead th:last-child {
+    border-radius: 0 !important;
+}
+
+.table tbody tr {
+    border-color: rgba(207,164,98,0.12) !important;
+    transition: background 0.2s;
+}
+
+.table tbody tr:hover {
+    background-color: rgba(207,164,98,0.10) !important;
+    color: #fff8ee;
+}
+
+.table td, .table th {
+    border-color: rgba(207,164,98,0.15) !important;
+    padding: 14px !important;
+    vertical-align: middle;
+}
+
+/* Primera columna en negrita/dorada */
+.table tbody td:first-child {
+    color: #e8c97a;
+}
+
+/* Wrapper responsive sin redondeo */
+.table-responsive {
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid rgba(207,164,98,0.2);
+}
+
+/* ===== 9. CARDS DE HÉROES Y MONSTRUOS ===== */
+.card-custom {
+    border: none;
+    border-top: 4px solid #9b5709;
+    border-radius: 0 0 14px 14px !important;
+    box-shadow: 0 6px 24px rgba(78,43,21,0.13);
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+    background: linear-gradient(160deg, #fdf6e3 0%, #f5e6c8 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Forzar que Bootstrap no redondee las esquinas superiores de la card */
+.card-custom,
+.card-custom > .card-body:first-child,
+.card-custom > .card-header {
+    border-top-left-radius: 0 !important;
+    border-top-right-radius: 0 !important;
+}
+
+/* Shimmer sutil en hover */
+.card-custom::before {
+    content: '';
+    position: absolute;
+    top: -100%;
+    left: -100%;
+    width: 300%;
+    height: 300%;
+    background: linear-gradient(45deg, transparent 40%, rgba(255,215,0,0.07) 50%, transparent 60%);
+    transition: transform 0.6s ease;
+    pointer-events: none;
+}
+
+.card-custom:hover::before {
+    transform: translate(33%, 33%);
+}
+
+.card-custom:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(78,43,21,0.2);
+    border-top-color: #cfa462;
+}
+
+.card-custom .card-title {
+    color: #4e2b15;
+    font-weight: 700;
+    font-size: 1.05rem;
+}
+
+.card-custom .card-footer {
+    background-color: #e8d4a8;
+    border-top: 1px solid #e2c08d;
+    font-size: 0.85rem;
+    font-family: 'Cinzel', serif;
+    letter-spacing: 0.3px;
+    border-radius: 0 0 12px 12px !important;
+    border-top-left-radius: 0 !important;
+    border-top-right-radius: 0 !important;
+}
+
+/* Cards de monstruos */
+.card-monstruo {
+    border-top-color: #7a1f1f;
+}
+
+.card-monstruo:hover {
+    border-top-color: #c0392b;
+}
+
+.card-monstruo .card-title {
+    color: #7a1f1f;
+}
+
+/* ===== 10. ALERT DE DATO CURIOSO ===== */
+.alert-custom {
+    border-left: 6px solid #9b5709;
+    background: linear-gradient(160deg, #fdf6e3 0%, #f5e6c8 100%);
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(78,43,21,0.1);
+    max-width: 900px;
+    margin: 0 auto;
+    font-family: 'EB Garamond', serif;
+    font-size: 1.05rem;
+}
+
+.alert-custom .alert-heading {
+    font-family: 'Cinzel', serif;
+    color: #4e2b15;
+    letter-spacing: 1.5px;
+}
+
+/* ===== 11. SECCIÓN AUTOR ===== */
+#autor-seccion {
+    background: linear-gradient(160deg, #fdf6e3 0%, #f5e6c8 100%) !important;
+}
+
+.autor-container {
+    display: inline-block;
+    padding: 40px 60px;
+    border: 1px solid rgba(155,87,9,0.3);
+    border-radius: 20px;
+    background: rgba(245,222,179,0.4);
+    box-shadow: 0 4px 20px rgba(78,43,21,0.08);
+}
+
+.autor-foto-marco {
+    width: 170px;
+    height: 170px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    border: 4px solid #9b5709;
+    box-shadow: 0 0 0 8px rgba(155,87,9,0.12), 0 12px 32px rgba(0,0,0,0.15);
+    overflow: hidden;
+}
+
+.autor-foto-marco img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.autor-nombre {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 1.3rem;
+    color: #3d1e08;
+    margin-bottom: 4px;
+}
+
+.autor-alias {
+    font-family: 'Cinzel', serif;
+    color: #9b5709;
+    font-style: italic;
+    letter-spacing: 4px;
+    font-size: 0.9rem;
+    margin-bottom: 12px;
+}
+
+.autor-desc {
+    font-size: 1rem;
+    color: #5a3a1a;
+    margin-bottom: 0;
+}
+
+/* ===== 12. FOOTER ===== */
+#pie-pagina {
+    background: linear-gradient(135deg, #1a0a02, #2c1505);
+    border-top: 3px solid #9b5709;
+    color: #c4a06a;
+    padding: 50px 40px;
+    text-align: center;
+    width: 100%;
+    margin-top: 0;
+    font-family: 'Cinzel', serif;
+    letter-spacing: 1px;
+}
+
+.footer-ornamento {
+    font-size: 2rem;
+    margin-bottom: 16px;
+    opacity: 0.35;
+    display: block;
+}
+
+#pie-pagina p {
+    margin-bottom: 6px;
+    font-size: 0.88rem;
+    color: #c4a06a;
+}
